@@ -1,7 +1,7 @@
 import { SemVer } from "semver"
 import Change from "./Change"
 import Changelog from "./Changelog"
-import dayjs from "dayjs"
+import dayjs, { Dayjs } from "dayjs"
 import CustomParseFormat from "dayjs/plugin/customParseFormat"
 
 dayjs.extend(CustomParseFormat)
@@ -9,12 +9,12 @@ dayjs.extend(CustomParseFormat)
 export default class Release {
   changelog?: Changelog
   version?: SemVer
-  date?: dayjs.Dayjs
+  date?: string | Dayjs
   yanked = false
   description: string
   changes: Map<string, Change[]>
 
-  constructor(version?: string | SemVer, date?: dayjs.Dayjs, description = "") {
+  constructor(version?: string | SemVer, date?: string, description = "") {
     this.setVersion(version)
     this.setDate(date)
 
@@ -73,7 +73,7 @@ export default class Release {
     }
   }
 
-  setDate(date?: dayjs.Dayjs) {
+  setDate(date?: string | dayjs.Dayjs) {
     if (typeof date === "string") {
       date = dayjs(date, "DD-MM-YYYY")
     }
@@ -224,20 +224,20 @@ export default class Release {
   }
 }
 
-function formatDate(date?: Date) {
-  if (!date) {
-    return "Unreleased"
-  }
+// function formatDate(date?: Date) {
+//   if (!date) {
+//     return "Unreleased"
+//   }
 
-  const year = date.getUTCFullYear()
-  let month: number | string = date.getUTCMonth() + 1
-  let day: number | string = date.getUTCDate()
+//   const year = date.getUTCFullYear()
+//   let month: number | string = date.getUTCMonth() + 1
+//   let day: number | string = date.getUTCDate()
 
-  if (month < 10) {
-    month = "0" + month
-  }
-  if (day < 10) {
-    day = "0" + day
-  }
-  return `${day}-${month}-${year}`
-}
+//   if (month < 10) {
+//     month = "0" + month
+//   }
+//   if (day < 10) {
+//     day = "0" + day
+//   }
+//   return `${day}-${month}-${year}`
+// }
