@@ -37,6 +37,7 @@ function processTokens(tokens: Token[], opts: Options): Changelog {
   let release
 
   while ((release = getContent(tokens, "h2").toLowerCase())) {
+    console.log("release", release)
     const matches = release.match(/\[?([^\]]+)\]?\s*-\s*([\d]{1,2}-[\d]{1,2}-[\d]{4})(\s+\[yanked\])?$/)
 
     if (matches) {
