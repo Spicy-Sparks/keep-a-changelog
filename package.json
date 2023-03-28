@@ -1,6 +1,6 @@
 {
   "name": "@slavkojos/keep-a-changelog",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "[Keep a Changelog](https://github.com/oscarotero/keep-a-changelog) library for\r Node & Deno",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

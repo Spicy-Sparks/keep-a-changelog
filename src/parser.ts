@@ -42,7 +42,7 @@ function processTokens(tokens: Token[], opts: Options): Changelog {
     console.log("matches", matches)
 
     if (matches) {
-      console.log("it matches")
+      console.log("it matches", matches[2])
       release = opts.releaseCreator(matches[1], matches[2])
       release.yanked = !!matches[3]
     } else if (release.includes("unreleased")) {
