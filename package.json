@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Spicy-Sparks/keep-a-changelog#readme",
   "dependencies": {
+    "dayjs": "^1.11.7",
     "semver": "^7.3.8"
   },
   "devDependencies": {
@@ -31,4 +32,3 @@
     "typescript": "^5.0.2"
   }
 }
-

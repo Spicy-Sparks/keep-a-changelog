@@ -1,11 +1,15 @@
 import { SemVer } from "semver"
 import Change from "./Change"
 import Changelog from "./Changelog"
+import dayjs from "dayjs"
+import CustomParseFormat from "dayjs/plugin/customParseFormat"
+
+dayjs.extend(CustomParseFormat)
 
 export default class Release {
   changelog?: Changelog
   version?: SemVer
-  date?: Date
+  date?: dayjs.Dayjs
   yanked = false
   description: string
   changes: Map<string, Change[]>
@@ -69,9 +73,9 @@ export default class Release {
     }
   }
 
-  setDate(date?: Date | string) {
+  setDate(date?: dayjs.Dayjs | string) {
     if (typeof date === "string") {
-      date = new Date(date)
+      date = dayjs(date, "DD-MM-YYYY")
     }
     this.date = date
   }
@@ -126,9 +130,9 @@ export default class Release {
 
     if (this.version) {
       if (hasCompareLink) {
-        t.push(`## [${this.version}] - ${formatDate(this.date)}${yanked}`)
+        t.push(`## [${this.version}] - ${dayjs(this.date, "DD-MM-YYYY")}${yanked}`)
       } else {
-        t.push(`## ${this.version} - ${formatDate(this.date)}${yanked}`)
+        t.push(`## ${this.version} - ${dayjs(this.date, "DD-MM-YYYY")}${yanked}`)
       }
     } else {
       if (hasCompareLink) {
