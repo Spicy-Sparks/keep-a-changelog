@@ -75,7 +75,7 @@ export default class Release {
 
   setDate(date?: string | dayjs.Dayjs) {
     if (typeof date === "string") {
-      date = dayjs(date).format("DD-MM-YYYY")
+      date = dayjs(date)
     }
     this.date = date
   }
@@ -130,9 +130,9 @@ export default class Release {
 
     if (this.version) {
       if (hasCompareLink) {
-        t.push(`## [${this.version}] - ${dayjs(this.date, "DD-MM-YYYY")}${yanked}`)
+        t.push(`## [${this.version}] - ${dayjs(this.date).format("DD-MM-YYYY")}${yanked}`)
       } else {
-        t.push(`## ${this.version} - ${dayjs(this.date, "DD-MM-YYYY")}${yanked}`)
+        t.push(`## ${this.version} - ${dayjs(this.date).format("DD-MM-YYYY")}${yanked}`)
       }
     } else {
       if (hasCompareLink) {
