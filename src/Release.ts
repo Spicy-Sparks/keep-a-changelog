@@ -1,4 +1,4 @@
-import { default as Semver } from "semver"
+import { Semver } from "semver"
 import Change from "./Change"
 import Changelog from "./Changelog"
 

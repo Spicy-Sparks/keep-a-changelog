@@ -1,5 +1,5 @@
 {
-  "name": "keep-a-changelog",
+  "name": "@slavkojos/keep-a-changelog",
   "version": "1.0.1",
   "description": "[Keep a Changelog](https://github.com/oscarotero/keep-a-changelog) library for\r Node & Deno",
   "main": "dist/index.js",
@@ -28,4 +28,3 @@
     "typescript": "^5.0.2"
   }
 }
-

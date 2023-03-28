@@ -1,5 +1,5 @@
 import Release from "./Release"
-import { eq, default as Semver } from "semver"
+import { eq, Semver } from "semver"
 
 export default class Changelog {
   flag?: string
