@@ -37,7 +37,7 @@ function processTokens(tokens: Token[], opts: Options): Changelog {
   let release
 
   while ((release = getContent(tokens, "h2").toLowerCase())) {
-    const matches = release.match(/\[?([^\]]+)\]?\s*-\s*([\d]{4}-[\d]{1,2}-[\d]{1,2})(\s+\[yanked\])?$/)
+    const matches = release.match(/\[?([^\]]+)\]?\s*-\s*([\d]{1,2}-[\d]{1,2}-[\d]{4})(\s+\[yanked\])?$/)
 
     if (matches) {
       release = opts.releaseCreator(matches[1], matches[2])
