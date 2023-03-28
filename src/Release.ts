@@ -1,6 +1,6 @@
-import { Semver } from "./deps.ts"
-import Change from "./Change.ts"
-import Changelog from "./Changelog.ts"
+import { default as Semver } from "semver"
+import Change from "./Change"
+import Changelog from "./Changelog"
 
 export default class Release {
   changelog?: Changelog
