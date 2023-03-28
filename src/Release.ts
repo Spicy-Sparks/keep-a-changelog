@@ -75,10 +75,10 @@ export default class Release {
 
   setDate(date?: string | dayjs.Dayjs) {
     if (typeof date === "string") {
-      date = dayjs(date, "DD-MM-YYYY")
+      date = dayjs(date, "DD-MM-YYYY").format("DD-MM-YYYY")
       console.log("date if", date)
     }
-    this.date = dayjs(date, "DD-MM-YYYY")
+    this.date = dayjs(date, "DD-MM-YYYY").format("DD-MM-YYYY")
   }
 
   setYanked(yanked = true) {
