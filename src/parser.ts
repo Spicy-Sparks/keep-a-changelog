@@ -37,22 +37,17 @@ function processTokens(tokens: Token[], opts: Options): Changelog {
   let release
 
   while ((release = getContent(tokens, "h2").toLowerCase())) {
-    console.log("release", release)
     const matches = release.match(/\[?([^\]]+)\]?\s*-\s*([\d]{1,2}-[\d]{1,2}-[\d]{4})(\s+\[yanked\])?$/)
-    console.log("matches", matches)
 
     if (matches) {
-      console.log("it matches", matches[2])
       release = opts.releaseCreator(matches[1], matches[2])
       release.yanked = !!matches[3]
     } else if (release.includes("unreleased")) {
-      console.log("if else")
       const matches = release.match(/\[?([^\]]+)\]?\s*-\s*unreleased(\s+\[yanked\])?$/)
       const yanked = release.includes("[yanked]")
       release = matches ? opts.releaseCreator(matches[1]) : opts.releaseCreator()
       release.yanked = yanked
     } else {
-      console.log("else")
       throw new Error(`Syntax error in the release title`)
     }
 
@@ -105,7 +100,6 @@ function getContent(tokens: Token[], type: TokenType | TokenType[], required = f
     if (required) {
       throw new Error(`Required token missing in: "${tokens[0][0]}"`)
     }
-
     return ""
   }
 
