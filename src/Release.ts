@@ -14,7 +14,7 @@ export default class Release {
   description: string
   changes: Map<string, Change[]>
 
-  constructor(version?: string | SemVer, date?: string | Date, description = "") {
+  constructor(version?: string | SemVer, date?: dayjs.Dayjs, description = "") {
     this.setVersion(version)
     this.setDate(date)
 
@@ -73,7 +73,7 @@ export default class Release {
     }
   }
 
-  setDate(date?: dayjs.Dayjs | string) {
+  setDate(date?: dayjs.Dayjs) {
     if (typeof date === "string") {
       date = dayjs(date, "DD-MM-YYYY")
     }
