@@ -1,5 +1,5 @@
 import Release from "./Release"
-import { eq, Semver } from "semver"
+import { eq, SemVer } from "semver"
 
 export default class Changelog {
   flag?: string
@@ -25,7 +25,7 @@ export default class Changelog {
     return this
   }
 
-  findRelease(version?: Semver | string) {
+  findRelease(version?: SemVer | string) {
     if (!version) {
       return this.releases.find((release) => !release.version)
     }

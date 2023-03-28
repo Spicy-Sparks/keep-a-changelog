@@ -1,16 +1,16 @@
-import { Semver } from "semver"
+import { SemVer } from "semver"
 import Change from "./Change"
 import Changelog from "./Changelog"
 
 export default class Release {
   changelog?: Changelog
-  version?: Semver
+  version?: SemVer
   date?: Date
   yanked = false
   description: string
   changes: Map<string, Change[]>
 
-  constructor(version?: string | Semver, date?: string | Date, description = "") {
+  constructor(version?: string | SemVer, date?: string | Date, description = "") {
     this.setVersion(version)
     this.setDate(date)
 
@@ -57,9 +57,9 @@ export default class Release {
     return Array.from(this.changes.values()).every((change) => !change.length)
   }
 
-  setVersion(version?: string | Semver) {
+  setVersion(version?: string | SemVer) {
     if (typeof version === "string") {
-      version = new Semver(version)
+      version = new SemVer(version)
     }
     this.version = version
 
