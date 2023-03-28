@@ -1,6 +1,6 @@
 {
   "name": "@slavkojos/keep-a-changelog",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "[Keep a Changelog](https://github.com/oscarotero/keep-a-changelog) library for\r Node & Deno",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "tsup src/index.ts --sourcemap",
+    "build": "tsc && node dist/index.js",
     "dev": "tsup src/index.ts && node dist/index.js"
   },
   "repository": {
