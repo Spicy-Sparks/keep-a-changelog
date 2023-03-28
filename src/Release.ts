@@ -75,7 +75,7 @@ export default class Release {
 
   setDate(date?: string | dayjs.Dayjs) {
     if (typeof date === "string") {
-      date = dayjs(date, "DD-MM-YYYY")
+      date = dayjs(date).format("DD-MM-YYYY")
     }
     this.date = date
   }
