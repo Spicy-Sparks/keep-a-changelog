@@ -1,8 +1,9 @@
 {
   "name": "@slavkojos/keep-a-changelog",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "[Keep a Changelog](https://github.com/oscarotero/keep-a-changelog) library for\r Node & Deno",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
@@ -24,6 +25,7 @@
     "semver": "^7.3.8"
   },
   "devDependencies": {
+    "@types/node": "^18.15.10",
     "@types/semver": "^7.3.13",
     "tsup": "^6.7.0",
     "typescript": "^5.0.2"
